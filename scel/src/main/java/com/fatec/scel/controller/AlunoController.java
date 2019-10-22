@@ -26,7 +26,7 @@ public class AlunoController {
 
 	@GetMapping("/consulta")
 	public ModelAndView listar() {
-		ModelAndView modelAndView = new ModelAndView("ConsultarAlunos");
+		ModelAndView modelAndView = new ModelAndView("ConsultarAluno");
 		modelAndView.addObject("Alunos", repository.findAll());
 		return modelAndView;
 	}
@@ -60,7 +60,7 @@ public class AlunoController {
 	public ModelAndView delete(@PathVariable("id") Long id) {
 
 		repository.deleteById(id);
-		ModelAndView modelAndView = new ModelAndView("ConsultarAlunos");
+		ModelAndView modelAndView = new ModelAndView("ConsultarAluno");
 		modelAndView.addObject("Alunos", repository.findAll());
 		return modelAndView;
 
@@ -68,16 +68,16 @@ public class AlunoController {
 
 	@PostMapping("/save")
 	public ModelAndView save(@Valid Aluno Aluno, BindingResult result) {
-		ModelAndView modelAndView = new ModelAndView("ConsultarAlunos");
+		ModelAndView modelAndView = new ModelAndView("ConsultarAluno");
 		if (result.hasErrors()) {
 			return new ModelAndView("CadastrarAluno");
 		}
 		try {
 			Aluno jaExiste=null;
-			jaExiste = repository.findByra(Aluno.getra());
+			jaExiste = repository.findByra(Aluno.getRa());
 			if (jaExiste == null) {
 				repository.save(Aluno);
-				modelAndView = new ModelAndView("ConsultarAlunos");
+				modelAndView = new ModelAndView("ConsultarAluno");
 				modelAndView.addObject("Alunos", repository.findAll());
 				return modelAndView;
 			} else {
@@ -97,11 +97,11 @@ public class AlunoController {
 			return new ModelAndView("AtualizaAluno");
 		}
 		Aluno umAluno = repository.findById(id).get();
-		umAluno.setemail(Aluno.getemail());
-		umAluno.setra(Aluno.getra());
-		umAluno.setnome(Aluno.getnome());
+		umAluno.setEmail(Aluno.getEmail());
+		umAluno.setRa(Aluno.getRa());
+		umAluno.setNome(Aluno.getNome());
 		repository.save(umAluno);
-		ModelAndView modelAndView = new ModelAndView("ConsultarAlunos");
+		ModelAndView modelAndView = new ModelAndView("ConsultarAluno");
 		modelAndView.addObject("Alunos", repository.findAll());
 		return modelAndView;
 	}

@@ -28,7 +28,7 @@ public class Aluno {
 	
 	private String nome;
 	@Column(nullable = false)
-	@NotNull(message="email invalido")
+	@NotNull(message="Email invalido")
     @Size(min = 1, max = 50, message="email deve ter entre 1 e 50 caracteres")
 	private String email;
 	
@@ -46,22 +46,22 @@ public class Aluno {
 	public Long getId() {
 		return id;
 	}
-	public String getra() {
+	public String getRa() {
 		return ra;
 	}
-	public void setra(String ra) {
+	public void setRa(String ra) {
 		this.ra = ra;
 	}
-	public String getnome() {
+	public String getNome() {
 		return nome;
 	}
-	public void setnome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getemail() {
+	public String getEmail() {
 		return email;
 	}
-	public void setemail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 }
