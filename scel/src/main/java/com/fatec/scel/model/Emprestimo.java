@@ -41,16 +41,23 @@ public class Emprestimo
 		this.isbn = isbn;
 	}*/
 	 
-	
+	 public Emprestimo() {
+		 setDataEmprestimo();
+	 }
 	 
 	 public Emprestimo(String isbn, String ra) 
 	 {
 		 this.isbn = isbn;
 		 this.ra = ra;
-		 setDataEmprestimo();
 	}
 	
-	
+	 public Long getId() {
+			return id;
+		}
+		
+		public void setId(Long id) {
+			this.id = id;
+		}
 	
 	public String getIsbn() {
 		return isbn;
@@ -73,7 +80,7 @@ public class Emprestimo
 	}
 	
 	// data do emprestimo - data atual do sistema
-	 public void setDataEmprestimo( ) {
+	public void setDataEmprestimo( ) {
 	 DateTime dataAtual = new DateTime();
 	 DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY/MM/dd");
 	 this.dataEmprestimo = dataAtual.toString(fmt);

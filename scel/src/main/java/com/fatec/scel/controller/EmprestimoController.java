@@ -37,13 +37,13 @@ import com.fatec.scel.model.Servico;
 		 * quando o usuario digita localhost:8080/emprestimo/cadastrar
 		 *
 		 * @param emprestimo
-		 * @return o html /RegistrarEmprestimo
+		 * @return o html /cadastrarEmprestimo
 		*/
 		@GetMapping("/cadastrar")
 		
-		public ModelAndView registrarEmprestimo(Emprestimo emprestimo) 
+		public ModelAndView cadastrarEmprestimo(Emprestimo emprestimo) 
 		{
-			ModelAndView mv = new ModelAndView("registrarEmprestimo");
+			ModelAndView mv = new ModelAndView("cadastrarEmprestimo");
 			mv.addObject("emprestimo", emprestimo);
 			return mv;
 		}
@@ -68,7 +68,7 @@ import com.fatec.scel.model.Servico;
 		public ModelAndView save(@Valid Emprestimo emprestimo, BindingResult result) {
 			ModelAndView modelAndView = new ModelAndView("consultarEmprestimo");
 			if (result.hasErrors()) {
-				return new ModelAndView("registrarEmprestimo");
+				return new ModelAndView("cadastrarEmprestimo");
 			}
 			try {
 				Emprestimo jaExiste = null;
@@ -79,7 +79,7 @@ import com.fatec.scel.model.Servico;
 					modelAndView.addObject("emprestimos", emprestimoRepository.findAll());
 					return modelAndView;
 				} else {
-					return new ModelAndView("registrarEmprestimo");
+					return new ModelAndView("cadastrarEmprestimo");
 				}
 			} catch (Exception e) {
 				System.out.println("erro ===> " + e.getMessage());

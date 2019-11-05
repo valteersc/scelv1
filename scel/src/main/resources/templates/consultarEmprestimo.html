@@ -9,8 +9,7 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet"></link>
-<
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
@@ -33,6 +32,7 @@
 							<th>ISBN</th>
 							<th>RA</th>
 							<th>Data do Empréstimo</th>
+							<th>Data de Devolução</th>
 							<th>Data Prevista de Devolução Empréstimo</th>							
 						</tr>
 					</thead>
@@ -42,6 +42,7 @@
 							<td th:text="${emprestimo.isbn}"></td>
 							<td th:text="${emprestimo.ra}"></td>
 							<td th:text="${emprestimo.dataEmprestimo}"></td>
+							<td th:text="${emprestimo.dataDevolucao	}"></td>
 							<td th:text="${emprestimo.dataDevolucaoPrevista}"></td>		
 							<td>
 								<div class="btn-group pull-right">
